@@ -1,0 +1,296 @@
+<header>
+    <div>
+        <p>TrueCare ProAuth
+            <button>About</button>
+            <button>Help</button>
+            <button>TC Adminstration</button>
+            <button>TC Admin</button>
+            <button>PROVIDERS LIST(10/10)</button>         
+        </p>   
+    </div>
+</header>    
+
+<mat-sidenav-container>
+    <mat-sidenav mode='side' opened='true'>
+    
+    <mat-list>
+    <mat-list-item >Dashboard</mat-list-item>
+    <hr>
+
+    <mat-list-item>Member search</mat-list-item>
+    
+    <hr>
+
+    <mat-list-item>
+        <div>
+            <div>IP Configuration</div>
+            <div>SP Configuration</div>
+            <div>Global Configuration</div>
+        </div>        
+    </mat-list-item>
+      
+    <hr>
+    <mat-list-item>Boss,Reda</mat-list-item>
+
+    <mat-list-item>
+        <div>
+            <label class='memberId'>Member ID</label>
+            <div >123456789</div>
+        </div>     
+    </mat-list-item>
+
+    <mat-list-item>
+        <div>
+            <label class='dob'>Date of Birth(Age)
+            </label>
+            <div>02/03/1980(38 years)</div>
+        </div>     
+    </mat-list-item>
+
+    <mat-list-item>
+        <div>
+            <label class='gender'>Gender</label>
+            <div >Male</div>
+        </div>     
+    </mat-list-item>
+
+    <mat-list-item>
+        <div>
+            <label class='eligibility'>Active Eligibility</label>
+            <div>Yes</div>
+        </div>     
+    </mat-list-item>
+
+    <mat-list-item>
+        <div>
+            <label class='policyNum'>Policy #</label>
+            <div>987654321</div>
+        </div>     
+    </mat-list-item>
+
+    <mat-list-item>
+        <div>
+            <label class='product'>Product</label>
+            <div>OAPIE-OAPIE</div>
+        </div>     
+    </mat-list-item>
+
+    <mat-list-item>
+        <div>
+            <label class='groupNum'>Group #</label>
+            <div>1711025</div>
+        </div>     
+    </mat-list-item>
+
+    <mat-list-item>
+        <div>
+            <label class='eligibilityEffDates'>Eligibility Effective Dates</label>
+            <div>01/01/2017-12/31/2030</div>
+        </div>     
+    </mat-list-item>
+       
+   </mat-list>
+</mat-sidenav>
+
+<mat-sidenav-content>
+<main>
+
+<div>
+    <p>Dashboard
+    <button>CREATE SERVICE/PROCEDURE AUTHORIZATION  </button>
+    <button>CREATE INPATIENT AUTHORIZATION</button>
+</p>
+<hr>
+</div>
+
+<!-- Here comes the Member Form -->
+<form class="content">
+    <h5>- Filter By</h5>
+<table>
+
+    <tr>
+        <td>
+            <label>Member ID</label><br>
+            <input type="text" >
+        </td>
+        <td>
+            <label>Authorization Number</label><br>
+            <input type="text" >
+        </td>
+        <td>
+            <label>Diagnosis Type</label><br>
+            <input type="text" >
+        </td>
+    </tr><br>
+
+    <tr>
+        <td>
+            <label>Date Of Service From Date</label><br>
+            <input type="text" style="margin-right: 30px;">
+        </td>
+        <td>
+            <label>Date Of Service To Date</label><br>
+            <input type="text" style='margin-right: 30px;'>
+        </td>
+        <td>
+            <label>InPatient Service Type</label><br>
+            <input type="text" style="margin-right: 30px;">
+        </td>
+        <td>
+            <label>Service/Procedure Service Type</label><br>
+            <input type="text" >
+        </td>
+    </tr><br>
+
+    <tr>
+        <td>
+            <input type="checkbox" >
+            <label>Include Closed</label>
+        </td>
+        <td>
+            <input type="checkbox" >
+            <label>Requested By Me</label>
+       </td>
+    </tr><br>
+
+    <tr>
+        <td>
+            <button style="float: left;">FILTER</button>
+            <button style="float: left;">RESET</button>
+       </td>
+    </tr><br>
+    
+</table>
+    
+</form>
+
+<h5>-Inpatient Authorization summary</h5>
+<div> 
+        <hr>
+        <button>VIEW AUTH DETAILS</button>
+        <button>EXTEND</button>
+</div><br>
+
+<!-- <div class="container">
+    <table  border="1">
+      <thead>
+      <tr>
+        <th>MemberName</th>
+        <th>Authorization #</th>
+        <th>Determination Status</th>
+        <th>From Date</th>
+        <th>To Date</th>
+        <th>Servicing Facility</th>
+        <th>Diagnosis Code</th>
+        <th>State</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let member of members">
+        <td>{{member.name}}</td>
+        <td *ngFor="let memberdata of member.member_pcps">{{memberdata.pcp_id}}</td>
+        <td *ngFor="let memberdata of member.member_pcps">Pending</td>
+        <td *ngFor="let memberdata of member.member_pcps">{{memberdata.pcp_prvd_eff_dt}}</td>
+        <td *ngFor="let memberdata of member.member_pcps">{{memberdata.pcp_prvd_eff_end_dt}}</td>
+        <td *ngFor="let memberdata of member.member_pcps">{{memberdata.pcp_prvd_nm}}</td>
+        <td *ngFor="let memberdata of member.member_pcps">{{memberdata.pcp_prvd_id}}</td>
+        <td *ngFor="let memberdata of member.member_pcps">{{memberdata.pcp_prvd_serv_st}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div> -->
+
+<!-- Tables for member -->
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  
+    <ng-container matColumnDef="member_name">
+      <th mat-header-cell *matHeaderCellDef>Member Name</th>
+      <td mat-cell  *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="auth_num">
+      <th mat-header-cell *matHeaderCellDef>Authorization #</th>
+      <td mat-cell *matCellDef="let element"> 
+        <ng-container  *ngFor="let authNumElement of element.member_pcps">
+          <div class="authNumElement">
+           {{authNumElement.pcp_id}}
+          </div>
+        </ng-container>
+    </td>
+    </ng-container>
+  
+   <ng-container matColumnDef="determination_status">
+      <th mat-header-cell *matHeaderCellDef> Determination Status </th>
+      <td mat-cell *matCellDef="let element"> Pending </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="from_date">
+        <th mat-header-cell *matHeaderCellDef>From Date</th> 
+        <td mat-cell *matCellDef="let element"> 
+          <ng-container  *ngFor="let fromDateElement of element.member_pcps">
+            <div class="fromDateElement">
+             {{fromDateElement.pcp_prvd_eff_dt}}
+            </div>
+          </ng-container>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="to_date">
+        <th mat-header-cell *matHeaderCellDef>To Date</th>
+        <td mat-cell *matCellDef="let element"> 
+          <ng-container  *ngFor="let toDateElement of element.member_pcps">
+            <div class="toDateElement">
+             {{toDateElement.pcp_prvd_eff_end_dt}}
+            </div>
+          </ng-container>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="servicing_facility">
+        <th mat-header-cell *matHeaderCellDef>Servicing Facility</th>
+        <td mat-cell *matCellDef="let element"> 
+          <ng-container  *ngFor="let servicingFacilityElement of element.member_pcps">
+            <div class="servicingFacilityElement">
+             {{servicingFacilityElement.pcp_prvd_nm}}
+            </div>
+          </ng-container>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="diagnosis_code">
+        <th mat-header-cell *matHeaderCellDef>Diagnosis Code</th> -->
+        <td mat-cell *matCellDef="let element"> 
+          <ng-container  *ngFor="let diagnosisCodeElement of element.member_pcps">
+            <div class="diagnosisCodeElement">
+             {{diagnosisCodeElement.pcp_prvd_id}}
+            </div>
+          </ng-container>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="state">
+        <th mat-header-cell *matHeaderCellDef>State</th> -->
+        <td mat-cell *matCellDef="let element"> 
+          <ng-container  *ngFor="let stateElement of element.member_pcps">
+            <div class="stateElement">
+             {{stateElement.pcp_prvd_serv_st}}
+            </div>
+          </ng-container>
+      </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>  
+
+<!-- Tables for member end --> 
+
+<app-service-table></app-service-table>
+
+<app-service-request-table></app-service-request-table>
+
+</main>
+
+</mat-sidenav-content>
+
+</mat-sidenav-container>

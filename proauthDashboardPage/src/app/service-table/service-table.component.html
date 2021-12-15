@@ -1,0 +1,44 @@
+<!-- Tables for service/ Procedure -->
+
+<h5>-Service/Procedures Authorization summary</h5>
+<div> 
+        <hr>
+        <button>VIEW AUTH DETAILS</button>
+        <button>ADD/EXTEND AUTH DETAILS</button>
+</div><br>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z9">
+  
+    <ng-container matColumnDef="member_name">
+      <th mat-header-cell *matHeaderCellDef>Member Name</th>
+      <td mat-cell *matCellDef="let element"> {{element.prvd_frst_nm}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="auth_num">
+      <th mat-header-cell *matHeaderCellDef>Authorization #</th>
+      <td mat-cell *matCellDef="let element"> {{element.prvd_npi}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="determination_status">
+      <th mat-header-cell *matHeaderCellDef> Determination Status </th>
+      <td mat-cell *matCellDef="let element"> {{element.prvd_par_npar}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="from_date">
+      <th mat-header-cell *matHeaderCellDef> From Date </th>
+      <td mat-cell *matCellDef="let element"> {{element.prvd_ntwk_eff_dt}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="to_date">
+        <th mat-header-cell *matHeaderCellDef> To Date </th>
+        <td mat-cell *matCellDef="let element"> {{element.prvd_ntwk_end_dt}} </td>
+    </ng-container> -->
+
+    <ng-container matColumnDef="state">
+        <th mat-header-cell *matHeaderCellDef> State </th>
+        <td mat-cell *matCellDef="let element"> {{element.prvd_serv_st}} </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>

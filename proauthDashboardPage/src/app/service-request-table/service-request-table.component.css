@@ -1,0 +1,11 @@
+table {
+    width: 100%;
+    margin: 20px;
+}
+
+button {
+    float: right;
+    shape-outside: ellipse();
+    background-color: slategrey;
+    margin-right: 10px;
+}

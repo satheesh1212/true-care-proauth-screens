@@ -1,0 +1,33 @@
+header{
+    background-color: darkcyan;
+    padding: 8px;
+    margin: 2px;
+}
+
+mat-sidenav-container{
+    height: 100%;
+}
+
+mat-sidenav, mat-sidenav-content{
+    padding: 10px;
+}
+
+mat-sidenav{
+   background-color:khaki;
+}
+
+mat-list-item{
+    display: inline;
+}
+
+button {
+    float: right;
+    shape-outside: ellipse();
+    background-color: slategrey;
+    margin-right: 10px;
+}
+
+table {
+    width: 100%;
+    margin: 20px;
+}
